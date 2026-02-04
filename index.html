@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axiotaxis | Industrial Computer Vision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL STYLES --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: #050505;
+            color: #eaeaea;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER & LOGO --- */
+        header {
+            padding: 80px 20px 40px 20px;
+            text-align: center;
+            background: radial-gradient(circle at top, #151515 0%, #050505 70%);
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-out;
+            display: inline-block;
+            width: 100%; 
+        }
+
+        .logo-container img {
+            transition: transform 0.5s ease, filter 0.5s ease;
+            width: 800px;
+            max-width: 90%; 
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: invert(1); 
+            opacity: 0.95;
+        }
+        
+        .logo-container:hover img {
+            transform: scale(1.02);
+            filter: invert(1) drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #888;
+            max-width: 600px;
+            margin: auto;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        /* --- SECTIONS --- */
+        .section {
+            max-width: 950px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        /* --- DEMO GRID --- */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .demo-box {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 30px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-box:hover {
+            border-color: #444;
+            transform: translateY(-5px);
+            background: #111;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .demo-box::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+            opacity: 0;
+            transition: 0.3s;
+        }
+        
+        .demo-box:hover::before {
+            opacity: 0.8;
+        }
+
+        /* --- MEDIA HOVER EFFECTS --- */
+        .media-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid #333;
+            margin-bottom: 15px;
+            line-height: 0; 
+        }
+
+        .media-static {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .media-gif {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            object-fit: cover;
+        }
+
+        .demo-box:hover .media-gif {
+            opacity: 1;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .demo-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .demo-desc {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        /* --- CONTACT BUTTON --- */
+        .contact-box {
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: #eaeaea;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 2px;
+            transition: 0.2s;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .contact-button:hover {
+            background: #fff;
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(0,255,255,0.2); 
+            color: #000;
+        }
+
+        .email-display {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .email-link {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+            transition: 0.3s;
+        }
+        
+        .email-link:hover {
+            border-bottom-color: #00ffff;
+            color: #00ffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #111;
+            color: #444;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="axiotaxis_logo.svg" alt="Axiotaxis Logo">
+    </div>
+
+    <div class="tagline">
+        Industrial Computer Vision.<br>
+        Solving visual problems in high-noise environments.
+    </div>
+</header>
+
+<section class="section">
+    <p style="font-size: 18px; color: #ccc; border-left: 2px solid #00ffff; padding-left: 20px;">
+        Standard AI fails when things get dusty, dark, or messy.
+        <br><br>
+        I am a physicist. I build custom <strong>vision systems for heavy industry</strong>. 
+        My models work in high-noise environments (construction, mining, manufacturing, logistics) where off-the-shelf software breaks.
+        <br><br>
+        Scope of work (examples of past/current clients): Automated grading for luxury leather (micro-defect detection), biomass estimation in high-turbidity shrimp ponds, and high-speed sorting for organic agricultural products (cashews/coffee/rice).
+        <br><br>
+        <span style="font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px;">No proprietary sensors required. Use existing or standard cameras. You get the code and the custom AI model. You own the IP. No subscriptions.</span>
+    </p>
+
+    <div class="demo-grid">
+        
+        <div class="demo-box">
+            <img src="assets/defect.jpg" style="width:100%; border-radius: 2px; margin-bottom: 15px; border: 1px solid #333;" alt="Defect Detection">
+            <div class="demo-title">Defect & Crack Detection</div>
+            <div class="demo-desc">
+                <strong>Catch failures early.</strong> Automatically spot micro-fractures, leaks, or material fatigue on the production line. I train models to see defects that human inspectors miss.
+            </div>
+        </div>
+
+        <div class="demo-box">
+            <div class="media-wrapper" style="height: 220px;">
+                <img src="assets/demo3-cells-static.jpg" class="media-static" style="height: 100%; width: 100%; object-fit: fill;" alt="Cell Analysis Static">
+                <img src="assets/demo3-cells.gif" class="media-gif" style="height: 100%; width: 100%; object-fit: fill;" alt="Cell Analysis Animation">
+            </div>
+            <div class="demo-title">High-Noise/Turbid Analysis</div>
+            <div class="demo-desc">
+                <strong>See through the mess.</strong> My PhD research focused on tracking objects in turbid, chaotic liquids. I apply that same physics-based logic to inspect pipelines, chemical flows, and messy industrial feeds.
+            </div>
+        </div>
+
+        <div class="demo-box">
+            <div class="media-wrapper">
+                <img src="assets/tracking.png" class="media-static" alt="Tracking Static">
+                <img src="assets/tracking.gif" class="media-gif" alt="Tracking Animation">
+            </div>
+            <div class="demo-title">Site Safety & Tracking</div>
+            <div class="demo-desc">
+                <strong>Track assets in real-time.</strong> Monitor vehicles, PPE compliance, and personnel entering hazard zones. Works in rain, fog, and low-light conditions where standard cameras fail.
+            </div>
+        </div>
+
+        <div class="demo-box">
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
+                <img src="assets/detection.png" style="width:100%; border-radius: 2px; border: 1px solid #333;" alt="Object Detection">
+                <img src="assets/ocr.png" style="width:100%; border-radius: 2px; border: 1px solid #333;" alt="Optical Character Recognition">
+            </div>
+            <div class="demo-title">Logistics & Counting</div>
+            <div class="demo-desc">
+                <strong>Automate the paperwork.</strong> Instant counting of pipe segments, timber, or containers. High-speed reading of labels and serial numbers to eliminate manual entry errors.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section contact-box">
+    <h2>Stop losing money on manual inspections and on large consultancy firms.</h2>
+    <br>
+    <a href="mailto:n.ghazi@axiotaxis.com" class="contact-button">Email Me</a>
+    
+    <div class="email-display">
+        Direct line: <a href="mailto:n.ghazi@axiotaxis.com" class="email-link">n.ghazi@axiotaxis.com</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Axiotaxis. <br>
+     Global Remote
+</footer>
+
+</body>
+</html>
