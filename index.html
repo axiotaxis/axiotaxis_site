@@ -202,7 +202,77 @@
             color: var(--text-heading);
             font-weight: 600;
         }
+        /* --- ENGAGEMENT PIPELINE --- */
+        .engagement-wrapper {
+            margin: 60px 0;
+            text-align: left;
+        }
 
+        .engagement-title {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .pipeline {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .pipeline-step {
+            flex: 1;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            padding: 20px;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .pipeline-step:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .step-header {
+            color: var(--accent-cyan);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            white-space: nowrap; 
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .pipeline-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-cyan);
+            font-size: 20px;
+            opacity: 0.5;
+        }
+
+        /* Mobile Layout Shift */
+        @media (max-width: 768px) {
+            .pipeline {
+                flex-direction: column;
+            }
+            .pipeline-arrow {
+                margin: 10px 0;
+                transform: rotate(90deg); /* Turns the ➔ into a ⬇ */
+            }
+        }
         /* --- CONTACT BUTTON --- */
         .contact-box {
             text-align: center;
@@ -341,8 +411,40 @@
 
 <section class="section contact-box">
     <h2>Stop losing money on manual inspections and on large consultancy firms.</h2>
-    <br>
-    <a href="mailto:n.ghazi@axiotaxis.com" class="contact-button">Email Me</a>
+    
+    <div class="engagement-wrapper">
+        <div class="engagement-title">How We Engage</div>
+        
+        <div class="pipeline">
+            <div class="pipeline-step">
+                <div class="step-header">[ Step 1: Feasibility ]</div>
+                <div class="step-desc"><strong>Zero cost.</strong> Send raw images/data. We verify if it's mathematically solvable within 48 hrs.</div>
+            </div>
+            
+            <div class="pipeline-arrow">➔</div>
+            
+            <div class="pipeline-step">
+                <div class="step-header">[ Step 2: System Audit ]</div>
+                <div class="step-desc">We assess your physical environment (lighting, dust, edge-compute) and design the technical blueprint.</div>
+            </div>
+            
+            <div class="pipeline-arrow">➔</div>
+            
+            <div class="pipeline-step">
+                <div class="step-header">[ Step 3: PoC Build ]</div>
+                <div class="step-desc">We build a lightweight model based on the audit specs to prove accuracy and inference speed.</div>
+            </div>
+            
+            <div class="pipeline-arrow">➔</div>
+            
+            <div class="pipeline-step">
+                <div class="step-header">[ Step 4: Deployment ]</div>
+                <div class="step-desc">Production-grade pipeline deployed to your edge devices. You own the code and the IP.</div>
+            </div>
+        </div>
+    </div>
+
+    <a href="mailto:n.ghazi@axiotaxis.com?subject=Feasibility%20Review%20Request" class="contact-button">Submit a Problem for Feasibility Review</a>
 </section>
 
 <footer>
